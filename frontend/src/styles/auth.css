@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Pretendard", Arial, sans-serif;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+/* 카드 */
+.auth-container {
+  width: 360px;
+  margin: 120px auto;
+  padding: 32px;
+  background: linear-gradient(135deg, #c1e0a4, #0b8539);
+
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 제목 */
+.auth-container h2 {
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* 폼 */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* input */
+.auth-form input {
+  margin-bottom: 14px;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  outline: none;
+
+  background-color: #ffffff;
+  color: #333;
+}
+
+.auth-form input:focus {
+  border-color: #8edf92;
+}
+
+/* 버튼 */
+.auth-form button {
+  margin-top: 10px;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: #36a727;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.auth-form button:hover {
+  background-color: #277014;
+}
+
+/* 하단 텍스트 */
+.auth-text {
+  margin-top: 18px;
+  font-size: 13px;
+  text-align: center;
+  color: #555;
+}
+
+.auth-text span {
+  color: #1e5816;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.auth-form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.auth-form-checkbox input[type="checkbox"] {
+  margin: 0;
+}
+
+.password-group {
+  position: relative;
+  width: 100%;
+}
+
+.password-group input {
+  width: 100%;
+  padding: 12px 40px 12px 12px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-70%);
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+  opacity: 0.7;
+}
+
+.eye-icon:hover {
+  opacity: 1;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 40px 12px 40px;
+}
+
+.auth-form button.signup {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  height: 48px;
+  letter-spacing: 0.5px;
+  background-color: #ffffff;
+  color: #277014;
+  border: 1px solid #277014;
+  margin-top: 20;
+}
+
+.auth-form button.signup:hover {
+  background-color: #e8f6e6;
+}
+
+.input-group:focus-within .input-icon {
+  opacity: 1;
+  color: #277014;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 40px 12px 40px;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-80%);
+  font-size: 16px;
+  opacity: 0.6;
+}
