@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: local
+
+server:
+  port: 8080
+
+jwt:
+  secret: trip-tune-letter-dev-secret
+  expiration-ms: 86400000
