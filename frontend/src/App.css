@@ -1,42 +1,94 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 15px;
   text-align: center;
+  width: 100%;
+  border-bottom: #88a798 1px solid;
+  /* border: #ff0077 3px solid; */
+  background-color: #cbe7d9;
 }
 
+.header{
+  /* border: #ff0077 3px solid; */
+  display: flex;
+  justify-content: space-between;
+  margin-right: 50px;
+  margin-left: 30px;
+}
+
+.header-left{
+  /* border: #ff0077 3px solid; */
+  display: flex;
+}
+
+.header-right{
+  /* border: #ff0077 3px solid; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.header-btn-join{
+  margin-right: 30px;
+  border: 1px solid #2ecc71;
+  background: white;
+  color: #2ecc71;
+  /* padding: 6px 14px; */
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.header-btn-join:hover {
+  background: #7eda95;
+  color: white;
+}
+
+.header-btn-join:focus-visible {
+  outline: 2px solid #27a5ae;
+  outline-offset: 2px;
+}
+
+
+.header-btn-login {
+  border: 1px solid #2ecc71;
+  background: white;
+  color: #2ecc71;
+  /* padding: 6px 14px; */
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.header-btn-login:hover {
+  background: #7eda95;
+  color: white;
+}
+
+.header-btn-login:focus-visible {
+  outline: 2px solid #27a5ae;
+  outline-offset: 2px;
+}
+
+
+
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  /* border: #ff0077 3px solid; */
+  height: 100px;
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.title{
+  /* border: #ff0077 3px solid; */
+  padding-left: 20px;
+  font-size: 25px;
+  font-weight: 700;
+  /* color: #01d12e; */
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}

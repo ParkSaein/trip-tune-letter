@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import logo from "./assets/logo.png";
+import { Outlet } from "react-router-dom";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  //여기는 자바스크립트 코드 영역
 
+  //아래의 return 안에는 웹에 보여줄 html 영역
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app-container">
+      {/* Header */}
+      <header className="header">
+        {/* 왼쪽: 로고 + 타이틀 */}
+        <div className="header-left">
+          <img
+            src={logo}
+            alt="로고"
+            className="logo"
+          />
+          <span className="title">Trip Tune Letter</span>
+        </div>
+
+        {/* 오른쪽: 회원가입 / 로그인 */}
+        <div className="header-right">
+          <button className="header-btn-join">회원가입</button>
+          <button className="header-btn-login">로그인</button>
+        </div>
+      </header>
+
+      {/* 메인 컨텐츠 영역 */}
+      <main className="main-content">
+        <Outlet />
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
