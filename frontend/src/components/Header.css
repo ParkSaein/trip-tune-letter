@@ -1,0 +1,155 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+  border-bottom: #88a798 1px solid;
+  background-color: #cbe7d9;
+} */
+
+.header{
+  /* border: #ff0077 3px solid; */
+  display: flex;
+  justify-content: space-between;
+  /* margin-right: 50px; */
+  /* margin-left: 30px; */
+
+  border-bottom: #88a798 1px solid;
+  background-color: #cbe7d9;
+  padding: 11px;
+}
+
+.header-left{
+  /* border: #ff0077 3px solid; */
+  display: flex;
+  margin-left: 20px;
+}
+
+.header-right{
+  /* border: #ff0077 3px solid; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.header-btn-join{
+  margin-right: 30px;
+  border: 1px solid #2ecc71;
+  background: white;
+  color: #2ecc71;
+  /* padding: 6px 14px; */
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.header-btn-join:hover {
+  background: #7eda95;
+  color: white;
+}
+
+.header-btn-join:focus-visible {
+  outline: 2px solid #27a5ae;
+  outline-offset: 2px;
+}
+
+
+.header-btn-login {
+  border: 1px solid #2ecc71;
+  background: white;
+  color: #2ecc71;
+  /* padding: 6px 14px; */
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.header-btn-login:hover {
+  background: #7eda95;
+  color: white;
+}
+
+.header-btn-login:focus-visible {
+  outline: 2px solid #27a5ae;
+  outline-offset: 2px;
+}
+
+
+
+.logo {
+  /* border: #ff0077 3px solid; */
+  height: 100px;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.title{
+  /* border: #ff0077 3px solid; */
+  padding-left: 30px;
+  font-size: 30px;
+  font-weight: 700;
+  /* color: #01d12e; */
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+/* =========================
+   마이 메뉴 드롭다운
+   ========================= */
+
+.my-menu-wrapper {
+  position: relative; /* 드롭다운 기준점 */
+}
+
+/* 드롭다운 박스 */
+.my-menu-dropdown {
+  position: absolute;      /* ⭐ header 흐름에서 제거 */
+  top: 100%;               /* 버튼 바로 아래 */
+  right: 0;
+
+  width: 180px;
+  margin-top: 10px;
+  padding: 10px 0;
+
+  background-color: #ffffff;
+  border: #2ecc71 1px solid;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+  list-style: none;
+  text-align: left;
+
+  z-index: 9999;           /* ⭐ 헤더 위에 종이처럼 */
+}
+
+/* 메뉴 아이템 */
+.my-menu-dropdown li {
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+}
+
+/* hover 효과 */
+.my-menu-dropdown li:hover {
+  background-color: #e3f5ec;
+}
+
+/* 위험 동작-회원탈퇴 */
+.my-menu-dropdown .delete {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+/* 로그아웃 */
+.my-menu-dropdown .logout{
+  color: #27a5ae;
+  font-weight: 600;
+}
