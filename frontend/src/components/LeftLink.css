@@ -1,0 +1,22 @@
+.left-link {
+  position: fixed;   /* 스크롤해도 고정 */
+  top: 200px;        /* 위에서 얼마나 떨어질지 */
+  left: 20px;        /* 왼쪽 여백 */
+  z-index: 1000;     /* 다른 요소 위에 보이게 */
+}
+
+.left-link-btn {
+  display: block;
+  padding: 12px 16px;
+  background-color: #94dab9;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.2s;
+  font-size: 10px;
+}
+
+.left-link-btn:hover {
+  background-color: #b7c7ff;
+}

@@ -21,9 +21,16 @@
 }
 
 .header-left{
-  /* border: #ff0077 3px solid; */
+  /* border: #27a5ae 1px solid; */
   display: flex;
   margin-left: 20px;
+}
+
+.link{
+  border: #27a5ae 1px solid;
+  font-size: 13px;
+  padding: 5px;
+  
 }
 
 .header-right{
