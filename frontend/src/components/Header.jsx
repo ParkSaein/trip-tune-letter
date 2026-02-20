@@ -29,7 +29,7 @@ function Header() {
             src={logo}
             alt="로고"
             className="logo"
-          />
+          />  
           <span className="title">Trip Tune Letter</span>
         </div>
 
