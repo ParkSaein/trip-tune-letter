@@ -2,6 +2,7 @@ import logo from "../assets/logo.png";
 import { useState } from "react";
 import './Header.css'
 import '../styles/global.css'
+import { Link } from "react-router-dom";
 
 
 
@@ -29,8 +30,8 @@ function Header() {
             src={logo}
             alt="로고"
             className="logo"
-          />  
-          <span className="title">Trip Tune Letter</span>
+          />
+          <Link to="/" className="title">Trip Tune Letter</Link>
         </div>
 
         {/* 오른쪽: 회원가입 / 로그인 */}

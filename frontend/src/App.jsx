@@ -16,7 +16,7 @@ function App() {
         <Router />
       </div>
 
-      {/* 기존 메인화면 내용 */}
+      {/* 왼쪽-일반뉴스레터 */}
       <>
         <LeftLink />
       </>
