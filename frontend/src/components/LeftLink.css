@@ -1,8 +1,6 @@
 .left-link {
-  position: fixed;   /* 스크롤해도 고정 */
-  top: 200px;        /* 위에서 얼마나 떨어질지 */
-  left: 20px;        /* 왼쪽 여백 */
-  z-index: 1000;     /* 다른 요소 위에 보이게 */
+  position: sticky;   /* fixed 대신 sticky */
+  top: 200px;
 }
 
 .left-link-btn {
@@ -14,7 +12,7 @@
   border-radius: 8px;
   font-weight: bold;
   transition: 0.2s;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .left-link-btn:hover {

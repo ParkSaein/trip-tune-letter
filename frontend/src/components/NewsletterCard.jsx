@@ -1,4 +1,5 @@
 import "./NewsletterCard.css";
+import { Link } from "react-router-dom";
 import jeju from "../assets/sample1.PNG"
 
 
@@ -23,7 +24,9 @@ function NewsletterCard({ data }) {
             <div className="card-buttons">
                 <button className="card-scrap">📌 스크랩</button>
                 <button className="card-like">❤️ {data.likes}</button>
-                <button className="detail-btn">상세보기</button>
+                <Link to={`/newsletter/${data.id}`}>
+                    <button className="detail-btn">상세보기</button>
+                </Link>
             </div>
         </div>
     </div>
