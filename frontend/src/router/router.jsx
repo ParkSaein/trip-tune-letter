@@ -15,7 +15,7 @@ export default function Router() {
             <Route path="/login" element={<Login />} />
 
             {/* 뉴스레터 상세보기 */}
-            <Route path="/newsletters/:id" element={<NewsletterDetail />} />    
+            <Route path="/newsletter/:id" element={<NewsletterDetail />} />    
         </Routes> 
     );
 }

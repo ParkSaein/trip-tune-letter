@@ -1,0 +1,62 @@
+.detail-container {
+    border: 1px solid #88a798;
+    width: 100%;
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.detail-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.detail-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.detail-content {
+    /* border: 1px solid #88a798; */
+  font-size: 17px;
+  line-height: 1.8;
+  white-space: pre-line;
+  margin-bottom: 40px;
+}
+
+.music-section {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #f5f7fa;
+  text-align: center;
+}
+
+.music-section h2 {
+  margin-bottom: 15px;
+}
+
+.youtube-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #cc0000;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.youtube-button:hover {
+  background-color: #ffffff;
+  border: #cc0000 1px solid;
+  color: #cc0000;
+}
