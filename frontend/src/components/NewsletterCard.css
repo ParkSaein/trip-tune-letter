@@ -5,8 +5,8 @@
   overflow: hidden;
   background: white;
   transition: 0.2s ease;
-  width: 1000px;
-  height: 200px;
+  max-width: 1000px;
+  max-height: 200px;
 }
 
 .card:hover {
