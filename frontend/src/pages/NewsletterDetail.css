@@ -1,11 +1,11 @@
 .detail-container {
-    border: 1px solid #88a798;
-    width: 100%;
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 20px;
-    box-sizing: border-box;
-    font-family: 'Pretendard', sans-serif;
+  border: 1px solid #88a798;
+  width: 100%;
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Pretendard', sans-serif;
 }
 
 .detail-title {

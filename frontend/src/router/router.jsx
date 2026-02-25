@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import NewsletterList from "../pages/NewsletterList";
 import NewsletterDetail from "../pages/NewsletterDetail";
 import Login from "../pages/Login";
+import LeftLink from "../components/LeftLink";
 
 
 export default function Router() {
@@ -15,7 +16,7 @@ export default function Router() {
             <Route path="/login" element={<Login />} />
 
             {/* 뉴스레터 상세보기 */}
-            <Route path="/newsletter/:id" element={<NewsletterDetail />} />    
+            <Route path="/newsletter/:id" element={<NewsletterDetail />} />
         </Routes> 
     );
 }
