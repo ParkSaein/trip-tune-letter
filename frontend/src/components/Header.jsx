@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 function Header() {
   //여기는 자바스크립트 코드 영역
   const [isLoggedIn, setIsLoggedIn] = useState(true); // 임시 로그인 상태
+  const [role] = useState("ADMIN"); // "USER" or "ADMIN"
   const [isMyMenuOpen, setIsMyMenuOpen] = useState(false);
 
   const toggleMyMenu = () => {
@@ -18,6 +19,7 @@ function Header() {
   const handleLogout = () => {
     setIsLoggedIn(false);
     setIsMyMenuOpen(false);
+    // localStorage.removeItem("accessToken"); ← 나중에 추가
   };
 
 
@@ -38,8 +40,8 @@ function Header() {
         <div className="header-right">
           {!isLoggedIn ? (
             <>
-              <button className="header-btn-join">회원가입</button>
-              <button className="header-btn-login">로그인</button>
+              <Link to="/signup" className="header-btn-join">회원가입</Link>
+              <Link to="/login" className="header-btn-login">로그인</Link>
             </>
           ) : (
             <div className="my-menu-wrapper">
@@ -49,10 +51,25 @@ function Header() {
 
               {isMyMenuOpen && (
                 <ul className="my-menu-dropdown">
-                  <li>회원정보 수정</li>
-                  <li>스크랩</li>
+                  <li>
+                    <Link to="/mypage">회원정보 수정</Link>
+                  </li>
+                  
+                  {role === "USER" && (
+                    <li>
+                    <Link to="/scrap">스크랩</Link>
+                  </li>
+                  )}
+                  {role === "ADMIN" && (
+                    <li>
+                      <Link to="/admin">관리자 페이지</Link>
+                    </li>
+                  )}
+
                   <li className='logout' onClick={handleLogout}>로그아웃</li>
-                  <li className="delete">회원탈퇴</li>
+                  <li className="delete">
+                    <Link to="/delete">회원탈퇴</Link>
+                  </li>
                 </ul>
               )}
             </div>
