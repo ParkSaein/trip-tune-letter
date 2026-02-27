@@ -30,6 +30,9 @@ const dummyData = [
 ];
 
 
+
+
+
 function NewsletterList() {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("latest");

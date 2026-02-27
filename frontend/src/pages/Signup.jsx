@@ -1,11 +1,12 @@
-// src/pages/Login.jsx
 import { useState } from "react";
-import "./Login.css";
+import "./Signup.css";
 
-function Login() {
+function Signup() {
   const [form, setForm] = useState({
     email: "",
     password: "",
+    name: "",
+    nickname: "",
   });
 
   const handleChange = (e) => {
@@ -17,15 +18,15 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("로그인 정보:", form);
+    console.log("회원가입 정보:", form);
   };
 
   return (
     <div className="auth-container">
       <div className="auth-box">
-        <h2>=== 로그인 ===</h2>
-
+        <h2>=== 회원가입 ===</h2>
         <form onSubmit={handleSubmit}>
+
           <div className="form-row">
             <label htmlFor="email">아이디</label>
             <input
@@ -50,11 +51,35 @@ function Login() {
             />
           </div>
 
-          <button type="submit">로그인</button>
+          <div className="form-row">
+            <label htmlFor="name">이름</label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-row">
+            <label htmlFor="nickname">닉네임</label>
+            <input
+              id="nickname"
+              type="text"
+              name="nickname"
+              value={form.nickname}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <button type="submit">회원가입</button>
         </form>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default Signup;

@@ -1,10 +1,15 @@
 // src/pages/NewsletterDetail.jsx
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./NewsletterDetail.css";
+import sample1 from "../assets/sample1.png"; // 이미지 import
 
 
 function NewsletterDetail(){
   const { id } = useParams();
+  const navigate = useNavigate();
+
+  // ✅ 관리자 여부 (로그인 시 저장해둔다고 가정)
+  const role = localStorage.getItem("role");
 
   // 🔥 나중에 백엔드에서 axios로 받아올 자리
   const newsletter = {
@@ -19,8 +24,24 @@ AI가 수집한 최신 여행 트렌드 분석에 따르면, '조용한 휴식' 
     `,
     musicTitle: "밤편지",
     artist: "아이유",
-    youtubeUrl: "https://www.youtube.com/watch?v=BzYnNdJhZQw"
+    youtubeUrl: "https://www.youtube.com/watch?v=BzYnNdJhZQw",
+    isPublished: false // ✅ 임시저장 여부 가정
   };
+
+
+  // ✅ 버튼 핸들러 (나중에 axios 연결)
+  const handleEdit = () => {
+    navigate(`/newsletter/edit/${id}`);
+  };
+
+  const handleDelete = () => {
+    alert("삭제 기능 (백엔드 연결 예정)");
+  };
+
+  const handlePublish = () => {
+    alert("공개 처리 (백엔드 연결 예정)");
+  };
+
 
   return (
     <div className="detail-container">
@@ -50,6 +71,21 @@ AI가 수집한 최신 여행 트렌드 분석에 따르면, '조용한 휴식' 
           유튜브에서 듣기 ▶
         </a>
       </div>
+
+      {/* ✅ 관리자 전용 버튼 */}
+      {role === "ROLE_ADMIN" && (
+        <div className="admin-buttons">
+          <button onClick={handleEdit} className="edit-btn">수정</button>
+          <button onClick={handleDelete} className="delete-btn">삭제</button>
+
+          {!newsletter.isPublished && (
+            <button onClick={handlePublish} className="publish-btn">
+              공개
+            </button>
+          )}
+        </div>
+      )}
+      
     </div>
   );
 }

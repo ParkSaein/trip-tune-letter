@@ -60,3 +60,34 @@
   border: #cc0000 1px solid;
   color: #cc0000;
 }
+
+
+.admin-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 12px;
+}
+
+.edit-btn,
+.delete-btn,
+.publish-btn {
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.edit-btn {
+  background-color: #88a798;
+}
+
+.delete-btn {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.publish-btn {
+  background-color: #4caf50;
+  color: white;
+}
