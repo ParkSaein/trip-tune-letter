@@ -1,5 +1,5 @@
 import logo from "../assets/logo.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './Header.css'
 import '../styles/global.css'
 import { Link } from "react-router-dom";
@@ -22,6 +22,9 @@ function Header() {
     // localStorage.removeItem("accessToken"); ← 나중에 추가
   };
 
+  useEffect(() => {
+    localStorage.setItem("role", role);
+  }, [role]);
 
   //아래의 return 안에는 웹에 보여줄 html 영역
   return (
