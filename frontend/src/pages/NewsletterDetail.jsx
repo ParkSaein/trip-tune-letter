@@ -118,11 +118,22 @@ AI가 수집한 최신 여행 트렌드 분석에 따르면, '조용한 휴식' 
               onChange={handleChange}
             />
           </div>
+
+          <div className="music-edit-row">
+            <label>유튜브 링크:</label>
+            <input
+              type="text"
+              name="yutubeLink"
+              value={newsletter.artist}
+              onChange={handleChange}
+            />
+          </div>
         </>
       ) : (
         <>
           <p><strong>노래:</strong> {newsletter.musicTitle}</p>
           <p><strong>가수:</strong> {newsletter.artist}</p>
+          <p><strong>유튜브 링크:</strong> {newsletter.youtubeUrl}</p>
         </>
       )}
     </div>
