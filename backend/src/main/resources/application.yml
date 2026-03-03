@@ -8,3 +8,6 @@ server:
 jwt:
   secret: trip-tune-letter-dev-secret
   expiration-ms: 86400000
+
+openai:
+  api-key: "YOUR_OPENAI_API_KEY"
