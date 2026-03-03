@@ -1,0 +1,40 @@
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.newsletter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.search-input {
+  width: 60%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.SortSelect {
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 90px;
+
+  text-align: center;      /* 선택된 값 가운데 정렬 */
+  text-align-last: center; /* 일부 브라우저 대응 */
+}
+
+.SortSelect option {
+  text-align: center;      /* 옵션 텍스트 정렬 시도 */
+}
