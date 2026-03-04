@@ -5,7 +5,12 @@ spring:
     password: triptuneletter2222
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+    hikari:
+      max-lifetime: 600000   # 10분
+      keepalive-time: 300000 # 5분
+      
   jpa:
+    open-in-view: false
     hibernate:
       ddl-auto: update
     show-sql: true

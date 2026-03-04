@@ -6,5 +6,5 @@ server:
   port: 8080
 
 jwt:
-  secret: trip-tune-letter-dev-secret
+  secret: "trip-tune-letter-dev-secret-012345"
   expiration-ms: 86400000
