@@ -1,4 +1,5 @@
 import { useState } from "react";
+import api from "../api/axios";
 import "./Signup.css";
 
 function Signup() {
@@ -9,24 +10,39 @@ function Signup() {
     nickname: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+
   const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("회원가입 정보:", form);
+    setLoading(true);
+    setErrorMsg("");
+    setSuccessMsg("");
+
+    try {
+      const res = await api.post("/api/auth/signup", form);
+      setSuccessMsg(res.data?.message || "회원가입 성공");
+    } catch (err) {
+      setErrorMsg(err.response?.data?.message || "회원가입 실패");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="auth-container">
       <div className="auth-box">
         <h2>=== 회원가입 ===</h2>
-        <form onSubmit={handleSubmit}>
 
+        {errorMsg && <p className="error">{errorMsg}</p>}
+        {successMsg && <p className="success">{successMsg}</p>}
+
+        <form onSubmit={handleSubmit}>
           <div className="form-row">
             <label htmlFor="email">아이디</label>
             <input
@@ -75,7 +91,9 @@ function Signup() {
             />
           </div>
 
-          <button type="submit">회원가입</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "가입 중..." : "회원가입"}
+          </button>
         </form>
       </div>
     </div>
