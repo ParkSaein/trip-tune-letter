@@ -1,11 +1,12 @@
 package com.triptuneletter.backend.auth.service;
 
+import com.triptuneletter.backend.auth.dto.LoginRequest;
+import com.triptuneletter.backend.auth.dto.LoginResult;
+import com.triptuneletter.backend.auth.dto.SignupRequest;
 import com.triptuneletter.backend.auth.entity.Member;
 import com.triptuneletter.backend.auth.entity.Status;
 import com.triptuneletter.backend.auth.jwt.JwtProvider;
 import com.triptuneletter.backend.auth.repository.MemberRepository;
-import com.triptuneletter.backend.auth.dto.LoginRequest;
-import com.triptuneletter.backend.auth.dto.SignupRequest;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -37,10 +38,12 @@ public class AuthService {
         memberRepository.save(member);
     }
 
-    public String login(LoginRequest request) {
+    // ✅ 여기만 핵심 변경: String -> LoginResult
+    public LoginResult login(LoginRequest request) {
 
         Member member = memberRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 이메일입니다."));
+
         if (member.getStatus() == Status.INACTIVE) {
             throw new IllegalArgumentException("탈퇴한 회원입니다.");
         }
@@ -49,7 +52,10 @@ public class AuthService {
             throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
         }
 
-        return jwtProvider.createToken(member.getEmail(), member.getRole().name());
+        String role = member.getRole().name();
+        String token = jwtProvider.createToken(member.getEmail(), role);
+
+        return new LoginResult(token, role);
     }
 
     public void delete(String email) {

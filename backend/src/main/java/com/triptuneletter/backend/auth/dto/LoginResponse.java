@@ -9,4 +9,5 @@ public class LoginResponse {
    private int status;
    private String message;
    private String token;
+   private String role; // ✅ 추가
 }

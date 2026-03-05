@@ -15,43 +15,35 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class AuthController {
 
-        private final AuthService authService;
+    private final AuthService authService;
 
-        @PostMapping("/signup")
-        public ResponseEntity<SignupResponse> signup(
-                
-                        @Valid @RequestBody SignupRequest request) {
-System.out.println(">>> SIGNUP HIT");
-                authService.signup(request);
+    @PostMapping("/signup")
+    public ResponseEntity<SignupResponse> signup(@Valid @RequestBody SignupRequest request) {
+        System.out.println(">>> SIGNUP HIT");
+        authService.signup(request);
+        return ResponseEntity.ok(new SignupResponse(200, "회원가입 성공"));
+    }
 
-                return ResponseEntity.ok(
-                                new SignupResponse(200, "회원가입 성공"));
-        }
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest request) {
 
-        @PostMapping("/login")
-        public ResponseEntity<LoginResponse> login(
-                        @Valid @RequestBody LoginRequest request) {
+        // ✅ token+role 받기
+        LoginResult result = authService.login(request);
 
-                String token = authService.login(request);
+        // ✅ role도 같이 내려주기
+        return ResponseEntity.ok(
+            new LoginResponse(200, "로그인 성공", result.getToken(), result.getRole())
+        );
+    }
 
-                return ResponseEntity.ok(
-                                new LoginResponse(200, "로그인 성공", token));
-        }
+    @DeleteMapping("/delete")
+    public ResponseEntity<DeleteResponse> delete(@AuthenticationPrincipal String email) {
+        authService.delete(email);
+        return ResponseEntity.ok(new DeleteResponse(200, "회원 탈퇴 성공"));
+    }
 
-        @DeleteMapping("/delete")
-        public ResponseEntity<DeleteResponse> delete(
-                        @AuthenticationPrincipal String email) {
-
-                authService.delete(email);
-
-                return ResponseEntity.ok(
-                                new DeleteResponse(200, "회원 탈퇴 성공"));
-        }
-
-        // 로그아웃 (JWT 쓰면 프론트에서 토큰 삭제)
-        @PostMapping("/logout")
-        public ResponseEntity<ApiResponse> logout() {
-                return ResponseEntity.ok(
-                                new ApiResponse(200, "로그아웃 성공"));
-        }
+    @PostMapping("/logout")
+    public ResponseEntity<ApiResponse> logout() {
+        return ResponseEntity.ok(new ApiResponse(200, "로그아웃 성공"));
+    }
 }

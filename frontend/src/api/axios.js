@@ -1,11 +1,17 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "", // ✅ 프록시-only: 절대 8080 직접 호출 안 함
+  baseURL: "/", // ✅ Vite proxy 사용
   headers: {
     "Content-Type": "application/json",
   },
-  withCredentials: false, // JWT 응답 토큰 방식이면 보통 false
+});
+
+// ✅ 로그인 이후 보호 API 호출 시 토큰 자동 첨부
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("accessToken");
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
 });
 
 export default api;

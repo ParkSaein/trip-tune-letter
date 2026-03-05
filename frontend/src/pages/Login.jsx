@@ -67,8 +67,10 @@ function Login() {
         roleToStore = payload?.role || payload?.auth || payload?.authorities?.[0];
       }
 
-      // role이 아예 없으면 USER로라도 저장(화면 제어용)
       localStorage.setItem("role", roleToStore || "USER");
+
+      // ✅ 🔥 헤더에게 "로그인 상태 바뀜" 알리기 (새로고침 필요 없음)
+      window.dispatchEvent(new Event("auth-changed"));
 
       // ✅ 로그인 성공 후 이동
       navigate("/");
