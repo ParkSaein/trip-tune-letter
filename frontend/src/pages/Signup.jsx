@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import "./Signup.css";
 
 function Signup() {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -15,6 +18,8 @@ function Signup() {
   const [successMsg, setSuccessMsg] = useState("");
 
   const handleChange = (e) => {
+    setErrorMsg("");
+    setSuccessMsg("");
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -26,9 +31,18 @@ function Signup() {
 
     try {
       const res = await api.post("/api/auth/signup", form);
+
       setSuccessMsg(res.data?.message || "회원가입 성공");
+
+      // ✅ 회원가입 성공하면 로그인 페이지로 이동 (원하면 주석 해제)
+      // navigate("/login");
     } catch (err) {
-      setErrorMsg(err.response?.data?.message || "회원가입 실패");
+      // 백엔드에서 validation 에러 메시지 형태가 다를 수 있어서 안전하게 처리
+      const msg =
+        err.response?.data?.message ||
+        err.response?.data?.error ||
+        "회원가입 실패";
+      setErrorMsg(msg);
     } finally {
       setLoading(false);
     }
@@ -52,6 +66,7 @@ function Signup() {
               value={form.email}
               onChange={handleChange}
               required
+              autoComplete="username"
             />
           </div>
 
@@ -64,6 +79,7 @@ function Signup() {
               value={form.password}
               onChange={handleChange}
               required
+              autoComplete="new-password"
             />
           </div>
 
@@ -93,6 +109,15 @@ function Signup() {
 
           <button type="submit" disabled={loading}>
             {loading ? "가입 중..." : "회원가입"}
+          </button>
+
+          <button
+            type="button"
+            className="secondary"
+            onClick={() => navigate("/login")}
+            disabled={loading}
+          >
+            로그인으로
           </button>
         </form>
       </div>

@@ -19,8 +19,9 @@ public class AuthController {
 
         @PostMapping("/signup")
         public ResponseEntity<SignupResponse> signup(
+                
                         @Valid @RequestBody SignupRequest request) {
-
+System.out.println(">>> SIGNUP HIT");
                 authService.signup(request);
 
                 return ResponseEntity.ok(

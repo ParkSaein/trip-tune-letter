@@ -1,19 +1,12 @@
 package com.triptuneletter.backend.auth.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "`Member`")
+@Table(name = "Member")   // ✅ 백틱 제거, DB 테이블명과 정확히 일치
 @Getter
 @NoArgsConstructor
 public class Member {
